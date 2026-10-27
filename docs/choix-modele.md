@@ -21,3 +21,18 @@ Date : [jj/mm/aaaa] · Groupe : [noms]
 
 ## Limites
 [Ce que ces chiffres ne disent pas : taille du jeu de test, données manquantes, cas mal couverts.]
+## CantineAI : choix du modèle
+
+| Modèle | MAE | RMSE | R² |
+|---|---|---|---|
+| baseline (semaine précédente) | ≈ 79 | | |
+| linear_regression | 22,2 | 28,2 | 0,88 |
+| random_forest | 31,8 | 41,5 | 0,75 |
+| decision_tree | 46,0 | 59,7 | 0,48 |
+
+**Modèle retenu : régression linéaire.**
+- MAE la plus faible : environ 22 repas d'erreur par jour, contre environ 79 pour la baseline.
+- Modèle simple, rapide et facile à expliquer au gestionnaire.
+- Critère d'acceptation (MAE ≤ 40 sur les 20 % de jours les plus récents, meilleure que la baseline) : **atteint**.
+
+Split chronologique : on teste sur les jours les plus récents, sans tirage au hasard, pour éviter de prédire le passé avec le futur.
