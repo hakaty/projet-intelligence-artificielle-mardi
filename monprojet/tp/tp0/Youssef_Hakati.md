@@ -1,6 +1,6 @@
 # TP0 : MaintAI
 
-**Nom :** youssef hakati · **Groupe :** G2
+**Nom :** Youssef Hakati · **Groupe :** G2
 
 ## Le problème
 
