@@ -1,6 +1,6 @@
 # Compte rendu · TP4 : un package Python pour MaintAI
 
-**Groupe :** IA 2  ·  **Membres :** Hakati Youssef  ·  **Date :** 10/11/2026
+**Groupe :** IA 2  ·  **Membres :** AZALIM Malak  ·  **Date :** 10/11/2026
 
 ---
 
