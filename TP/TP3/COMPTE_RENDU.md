@@ -27,7 +27,7 @@ Lancez d'abord `streamlit run ui/app.py`. Que s'affiche-t-il dans le navigateur 
 ```
 ModuleNotFoundError: No module named 'maintai'
 Traceback:
-  File ".../ui/app.py", line 9, in <module>
+  File "C:\Users\user\Desktop\TP3_complet\maintai-starter-tp3\ui\app.py", line 9, in <module>
     from maintai.client import APIError, MaintaiClient
 ```
 
@@ -97,15 +97,15 @@ def predict(self, reading: dict) -> dict:
 Dernière ligne de `python -m pytest` à la fin du sprint 2 :
 
 ```
-23 passed, 1 warning in 1.76s
+========= 23 passed in 4.88s ==========
 ```
 
-Avec l'API lancée (`uvicorn maintai.api.main:app --reload --env-file .env`) :
+Avec l'API lancée (`python -m uvicorn maintai.api.main:app --reload --env-file .env`, clé `MAINTAI_API_KEY` définie dans `.env`) :
 
 | Essai | Ce qu'affiche Streamlit |
 |---|---|
 | valeurs par défaut, bonne clé | « Probabilité de panne : 95 % », puis en rouge : « ALERTE : risque de panne (seuil 30%). Planifier une intervention. » |
-| valeurs par défaut, fausse clé | En jaune : « L'API a refusé la requête (erreur 401) : Clé API absente ou invalide » |
+| valeurs par défaut, fausse clé | En jaune : « L'API a refusé la requête (erreur 401) : Clé API absente ou invalide ». Uvicorn affiche `POST /v1/predict HTTP/1.1" 401 Unauthorized` |
 | API arrêtée (Ctrl+C dans le terminal d'uvicorn) | En rouge : « API injoignable : vérifiez qu'uvicorn tourne sur http://localhost:8000 » |
 
 Le port 8501 n'est pas dans `MAINTAI_CORS_ORIGINS`, et pourtant la prédiction fonctionne. Pourquoi ?
@@ -129,4 +129,5 @@ CORS est une règle **du navigateur** : il bloque le JavaScript d'une page qui a
 
 ## 7. Ce qui reste flou
 
-…
+- Uvicorn lit `.env` **une seule fois, au démarrage**. Après avoir changé la clé dans `.env`, nous avions encore des erreurs 401 tant qu'uvicorn n'avait pas été relancé (Ctrl+C puis relance).
+- Sous PowerShell, les commentaires `::` de cmd ne marchent pas, et `activate.bat` doit être remplacé par `Activate.ps1`.
