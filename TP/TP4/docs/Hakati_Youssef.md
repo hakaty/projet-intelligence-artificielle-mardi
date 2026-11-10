@@ -136,10 +136,10 @@ Le modèle a été écrit avec scikit-learn 1.8.0. Le wheel demande seulement `s
 
 ## 5. Le rendu Git
 
-- Lien de la pull request : …
-- Le tag `tp4` existe sur GitHub : oui / non
+- Lien de la pull request : https://github.com/hakaty/projet-intelligence-artificielle-mardi/pull/2
+- Le tag `tp4` existe sur GitHub : oui
 - `git status` avant le commit : `dist/`, `build/`, `maintai.egg-info/` ou `.venv` apparaissaient-ils ? non (exclus par `.gitignore`)
 
 ## 6. Ce qui reste flou
 
-…
+- La gestion des versions du modèle : pourquoi joblib ne garantit pas de relire un modèle avec une autre version de scikit-learn que celle qui l'a écrit (d'où l'utilité de `model_info.json` et des versions figées dans `requirements.txt`).
